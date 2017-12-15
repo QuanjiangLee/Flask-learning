@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+	{% if user %}
+	<h3>Welcome to here! {{user.userName}}</h3>
+	{% else %}
+	<h3>Welcome to here!</h3>
+	{% endif %}
+    <h1>Hello, {{ user.userName }}!</h1>       
+    {% for index in posts %}
+    <div><p>{{ index.author.userName }} says: <strong>{{ index.message }}</strong></p></div>
+    {% endfor %}
+{% endblock %}
