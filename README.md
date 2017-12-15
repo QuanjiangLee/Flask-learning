@@ -1,6 +1,6 @@
 # flask学习笔记
 ---------------
-## Flask是一个使用Python编写的轻量级Web应用框架。基于Werkzeug WSGI工具箱和Jinja2 模板引擎。Flask使用BSD授权。Flask被称为“microframework”，因为它使用简单的核心，用extension增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM、窗体验证工具、文件上传、各种开放式身份验证技术。
+## &emsp;&emsp;Flask是一个使用Python编写的轻量级Web应用框架。基于Werkzeug WSGI工具箱和Jinja2 模板引擎。Flask使用BSD授权。Flask被称为“microframework”，因为它使用简单的核心，用extension增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM、窗体验证工具、文件上传、各种开放式身份验证技术。
 ### 1.第一个Demo,"Hello, world"
 * 环境需要：python2.7.12, pip9.0.1, sublime text3 
 * 模块安装：pip install flask 
@@ -64,8 +64,9 @@ def index():
 ```python
 from app import app
 app.run(host='0.0.0.0', debug=True)
-$ python microblog.py
 ```
+运行:  
+`` $ python microblog.py ``
 ### 3.第三个Demo,WTForms使用
 使用config文件配置：
 ```
@@ -140,5 +141,5 @@ finally:
 python中的with的作用是自动释放对象，即使对象在使用的过程中有异常抛出。可以使用with的类型必须实现__enter__ __exit__。类似于try...finally,在finally中调用了释放函数。
 
 ## 扩展知识:Tornade Web框架
-Tornado全称Tornado Web Server，是一个用Python语言写成的Web服务器兼Web应用框架，由FriendFeed公司在自己的网站FriendFeed中使用，被Facebook收购以后框架以开源软件形式开放给大众。
+&emsp;&emsp;Tornado全称Tornado Web Server，是一个用Python语言写成的Web服务器兼Web应用框架，由FriendFeed公司在自己的网站FriendFeed中使用，被Facebook收购以后框架以开源软件形式开放给大众。
 作为Web服务器，是一个轻量级的Web框架，Tornado有较为出色的抗负载能力，官方用nginx反向代理的方式部署Tornado和其它Python web应用框架进行对比，结果最大浏览量超过第二名近40%。
