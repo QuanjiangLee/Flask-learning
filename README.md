@@ -64,7 +64,7 @@ def index():
 ```python
 from app import app
 app.run(host='0.0.0.0', debug=True)
-shell python microblog.py
+$ python microblog.py
 ```
 ### 3.第三个Demo,WTForms使用
 使用config文件配置：
