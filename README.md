@@ -1,7 +1,6 @@
 # flask学习笔记
 ---------------
 ## Flask是一个使用Python编写的轻量级Web应用框架。基于Werkzeug WSGI工具箱和Jinja2 模板引擎。Flask使用BSD授权。Flask被称为“microframework”，因为它使用简单的核心，用extension增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM、窗体验证工具、文件上传、各种开放式身份验证技术。
-
 ### 1.第一个Demo,"Hello, world"
 * 环境需要：python2.7.12, pip9.0.1, sublime text3 
 * 模块安装：pip install flask 
@@ -14,7 +13,6 @@ def hello():
 if __name__ == '__main__':  
 	app.run(host='0.0.0.0', debug=True)
 ```
-
 
 * flask 常用引用模块：  
  request, redirect, render_template  
@@ -29,8 +27,6 @@ if __name__ == '__main__':
  with app.test_request_context() #创建一个request测试上下文环境  
  from flask import url_for #自定义构造url路由？  
  @app.errorhandler(404) #404 页面  
-
- 
 
 ### 2.第二个Demo，templates模版使用  
 在app目录下建立templates文件夹,在templates文件夹下建立相关html页面代码  
@@ -58,6 +54,7 @@ def index():
     ]
     return render_template('posts.html', user=user, title=title, posts=posts)  #返回模版时传参
 ```
+模版接收数据：
 ```Python
     {% for index in posts %}
     <div><p>{{ index.author.userName }} says: <strong>{{ index.message }}</strong></p></div> #模版接收并解析数据
@@ -87,7 +84,7 @@ class loginForm(FlaskForm):  #创建表单对象类
 	id_me = StringField('id', validators=[DataRequired()])  
 	rem_me = BooleanField('rem_me', default=False)
 ```
-view代码
+view部分代码：
 ```python
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -128,9 +125,10 @@ def login():
 截至目前:工程目录树如下：
 
 
-##python补充知识：
-``1 if a else 0 #如果a==True返回1否则返回0
-``with fun() as f： # f为fun()返回值
+## python补充知识：  
+`` 1 if a else 0  # 如果a==True返回1否则返回0 ``  
+`` with fun() as f： # f为fun()返回值``
+
 with 等价于：
 ```python
 try:
