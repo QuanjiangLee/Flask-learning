@@ -14,14 +14,14 @@ if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
 ```
 
- - 1.3 flask 常用引用模块：    
+ - 1.3 flask 常用引用模块：   
  request, redirect, render_template  
  session escape  #escape模块提供字符串转义过滤  
  from flask import make_response #在视图里操纵上述步骤结果的响应对象，可以使用 make_response() 函数。 
  session.('a', xx)  #移除session a的信息  
  session.pop('a', xx)  #移除session a的信息  
 
- - 1.4 总结：  
+ - 1.4 总结：  
  @app.route('URL') #定义URL路由  
  @app.route('URL<args>') #URL路由携带参数  
  with app.test_request_context() #创建一个request测试上下文环境  
