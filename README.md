@@ -123,9 +123,61 @@ def login():
     	{% endif %}
     	{% endwith %}
 ```
-### 截至目前:工程目录树如下：
 
+### 4. 第四个Demo,使用Flask_SQLAIchemy扩展模拟数据库操作
+- 4.1 
+安装模块：  
+```
+$ pip install sqlalchemy  
+$ pip install sqlalchemy-migrate 
+$ pip install flask-sqlalchemy
+```  
+- 4.2 配置config文件:
+```python
+import os
+SQLALCHEMY_DATABASE_URL = 'sqlite:///' + os.path.join(basedir, 'app.db')
+SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'DBrepository')
+```
+- 4.3 定义数据库models：
+```python
+class Posts(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  #数据类型
+    post = db.Column(db.String(140)) 
+    timeStamp = db.Column(db.DateTime)
+    user_id = db.Column(db.Integer, db.ForeignKey('userinf.userId'))
+    author = db.Column(db.String(24))
+    
+    def __repr__(self):                          #格式化字符串打印
+        return '<Posts %r>' % (self.posts)
+```
+- 4.4 数据库models生成，迁移和更新：
+使用教程的dbCreate.py, migrate.py 和dbUpdate.py 进行数据库对象的操作  
+- 4.5 数据库shell交互数据    
+进入项目目录，运行python命令交互：  
+添加用户：
+```  
+>>> from app import db, models
+>>> u = models.UserInf(userName="Quanjiang", userEmail="QuanjiangLee@gmail.com")
+>>> db.session.add(u)
+>>> db.session.commit()  #提交修改 
+``` 
+添加文章：
+```
+>>> u = models.UserInf.query.get(1)  #get userName
+>>> post = models.Posts(post="this is a first post!", timeStamp=datetime.datetime.utcnow(), author=u)  #author作为Posts关联
+>>> db.session.add(post)
+>>> db.session.commit()
+```
+models简单增删查语句：
+```
+ >>> db.session.add(post)  #添加操作
+ >>> db.session.delete(u)  #删除操作
+ >>> u = models.User.query.get(1)  posts = u.posts.all() # 外键查询
+ >>> u = models.User.query.all() 
+```
 
+## 目前项目目录树  
+![](fTree1.png)
 ## python补充知识：  
 `` 1 if a else 0  # 如果a==True返回1否则返回0 ``  
 `` with fun() as f： # f为fun()返回值``

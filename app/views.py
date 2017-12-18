@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect
 from app import app
 from .forms import loginForm
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	form = loginForm()
