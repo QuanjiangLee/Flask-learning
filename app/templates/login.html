@@ -1,16 +1,36 @@
 {% extends "base.html" %}
-
 {% block content %}
 	<script type="text/javascript">
+	(function(){
+		document.getElementsByName('submit').onclick() = function(){
+		if (!verify_input()){
+			return false
+		}
+		}
+	})
+	function verify_input(){
+	var form = document.forms['login'];
+	var userName =form.elements['userName'].value
+	var passWord = from.elements['passWord'].value
+	if (userName == '' || passWord == ""){
+		alert("userName or password is not null!")
+		return false 
+	}
+	return true 
+	}
 	</script>
 	<h1>Sign in</h1>
-	<form action="" method="post" name="login">
+	<form action="/login" method="post" name="login">
 	{{ form.hidden_tag() }}
 	<p>
-		please enter your id:<br>
-		{{ form.id_me(size=80) }}<br>
+		please enter your userName:<br>
+		{{ form.userName(size=80) }}<br>
 	</p>
+	<p>
+			please enter your password:<br>
+			{{ form.passWord(size=80) }}<br>
+		</p>
 	<p>{{ form.rem_me }} Remember Me</p>
-	<p><input type="submit" name="Sign in"></p>
+	<p><input type="submit" name="submit"></p>
 	</form>
 {% endblock %}

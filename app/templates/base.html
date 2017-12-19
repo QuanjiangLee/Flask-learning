@@ -4,14 +4,24 @@
         <title>{{ title }} - Microblog</title>
         {% else %}
         <title>Welcome to here!</title>
-        {% endif %}
+		{% endif %}
+		<style>
+		.warning-msg {
+			color:red;
+		}
+		</style>
     </head>
     <body>
+		<div>
+			{% if g.user.is_authenticated %}
+			| <a href="{{ url_for('logout') }}">Logout</a>
+			{% endif %}
+		</div>
     	{% with messages = get_flashed_messages() %}
     	{% if messages %}
     	<ul>
     		{% for m in messages %}
-    			<li>{{ m }}</li>
+    			<li class="warning-msg">{{ m }}</li>
     		{% endfor %}
     	</ul>
     	{% endif %}
