@@ -150,7 +150,7 @@ class Posts(db.Model):
     def __repr__(self):                          #格式化字符串打印
         return '<Posts %r>' % (self.posts)
 ```
-- 4.4 数据库models生成，迁移和更新：
+- 4.4 数据库models生成，迁移和更新：  
 使用教程的dbCreate.py, migrate.py 和dbUpdate.py 进行数据库对象的操作  
 - 4.5 数据库shell交互数据    
 进入项目目录，运行python命令交互：  
@@ -177,7 +177,7 @@ models简单增删查语句：
 ```
 
 ## 目前项目目录树  
-![](fTree1.png)
+![](fTree1.PNG)
 ## python补充知识：  
 `` 1 if a else 0  # 如果a==True返回1否则返回0 ``  
 `` with fun() as f： # f为fun()返回值``
